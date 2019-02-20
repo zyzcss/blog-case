@@ -11,7 +11,7 @@
     "react-dom": "^16.8.2"
   },
   "scripts": {
-    "start": "node config",
+    "start": "node config.js",
     "start-def": "parcel public/index.html",
     "build": "cross-env NODE_ENV=production node config.js",
     "build-mac": "export NODE_ENV=production&& node config.js",

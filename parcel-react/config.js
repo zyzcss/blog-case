@@ -30,9 +30,9 @@ if(process.env.NODE_ENV !== 'production'){
 	bundler.bundle();
 }
 
-async function start(bundler){
+function start(bundler){
 	const {hmrPort, https} = bundler.options
-	await bundler.serve(
+	bundler.serve(
 		hmrPort,
 		https
 	);
