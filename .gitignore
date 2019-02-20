@@ -1,3 +1,5 @@
-parcel-react/node_modules
-parcel-react/.cache
-parcel-react/dist
+*/node_modules
+*/.cache
+*/dist
+*/yarn.lock
+*/yarn-error.log
