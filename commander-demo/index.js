@@ -29,7 +29,7 @@ program.parse(process.argv) */
 /* 
     输入:node index rm a -r
     输出:
-    ['a', {Connand对象}]
+    ['a', {Command对象}]
 */
 
 /* program
@@ -42,7 +42,7 @@ program.parse(process.argv) */
 /* 
     输入:node index rmdir a.js b.js c.js
     输出:
-    ['a.js',['b.js','c.js'],{Connand对象}]
+    ['a.js',['b.js','c.js'],{Command对象}]
 */
 
 /* let cmdValue, envValue;
