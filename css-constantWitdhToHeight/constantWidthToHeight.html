@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>constantWidthToHeight</title>
+    <style>
+    .container{
+        width: 300px;
+        height: 400px;
+    }
+    .constant-width-to-height-ratio {
+        background: #333;
+        width: 100%;
+        overflow: hidden;
+    }
+    /* .constant-width-to-height-ratio::before {
+        content: '';
+        padding-top: 50%;
+        float: left;
+    }
+    .constant-width-to-height-ratio::after {
+        content: '';
+        父元素overflow: hidden;或下面的方案
+        display: block;
+        clear: both;
+    } */
+    .constant-width-to-height-ratio div{
+        padding-top: 50%;
+        float: left;
+    }
+    </style>
+</head>
+<body>
+    <div id="container" class="container">
+        <div class="constant-width-to-height-ratio">
+            <div></div>
+        </div>
+    </div>
+    <input id="width" type="text" placeholder="宽度" value="300">
+    <input id="scale" type="text" placeholder="宽高比" value="2">
+    <button id="change">改变</button>
+    <script>
+        const container = document.getElementById('container');
+        const target = document.querySelector('.constant-width-to-height-ratio div');
+        change.addEventListener('click', function(){
+            const _width = width.value;
+            const _scale = scale.value;
+            console.log(_width,_scale);
+            if(checkIsNumber(_width) && checkIsNumber(_scale)){
+                container.style.width = _width + 'px';
+                target.style.paddingTop = 100/_scale + '%';
+            }
+        })
+        function checkIsNumber(num){
+            return !Number.isNaN(Number(num))
+        }
+    </script>
+</body>
+</html>
