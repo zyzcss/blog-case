@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>other</div>
+    <div id="container" class="container">
+        <section>
+            <img src="./out.png" alt="外图">
+            <div>
+                <div>
+                    <img src="./pre.png" alt="1">
+                    <img src="./pre.png" alt="2">
+                    <img src="./now.png" id="compareImg" alt="3">
+                    <img src="./next.png" alt="4">
+                    <img src="./next.png" alt="5">
+                </div>
+                <img src="./out.png" alt="外图">
+            </div>
+        </section>
+    </div>
+    <div>
+        other
+    </div>
+    <script>
+        window.addEventListener("click", function(e){
+            if(isImgDom(e) && isInDom(e, "container")){
+                e.target.style.outline = `2px solid ${getOutlineColor(e.target, "#compareImg")}`;
+
+            }else{
+                document.querySelectorAll('img').forEach(function(e){
+                    e.style.outline = "";
+                })
+            }
+        })
+
+        function isImgDom(e){
+            return e.target.nodeName == "IMG";
+        }
+
+        function isInDom(e, id){
+            let parent = e.target;
+            while(parent.nodeName != "BODY" && parent.nodeName != "HTML"){
+                parent = parent.parentNode;
+                if(parent.getAttribute('id') == id)return true;
+            }
+            return false;
+        }
+
+        function getOutlineColor(dom, targetSelector){
+            const target = document.querySelector(targetSelector);
+            if(target == dom) return "";
+            const position = target.compareDocumentPosition(dom);
+            switch (position) {
+                case 2:
+                    return "red";
+                case 4:
+                    return  "green";
+                default:
+                    return "blue";
+            }
+        }
+    </script>
+</body>
+</html>
