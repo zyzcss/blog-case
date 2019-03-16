@@ -6,6 +6,7 @@
 */
 
 function equalObject(obj1, obj2){
+    if(isArray(obj1) || isArray(obj2))return false;
     if(Object.keys(obj1).length !== Object.keys(obj2).length)return false;
     for (let key in obj1) {
         if (!obj2.hasOwnProperty(key) || obj1[key] !== obj2[key]) {
@@ -16,6 +17,7 @@ function equalObject(obj1, obj2){
 }
 
 function equalArray(arr1, arr2){
+    if(!isArray(obj1) || !isArray(obj2))return false;
     if(arr1.length !== arr2.length)return false;
     let i = -1,
         length = arr1.length;
